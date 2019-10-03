@@ -1,0 +1,42 @@
+- if current_user.id == @article.user_id
+  .header
+    .title_left
+      %p.title_left__text #{@name}さんのめもろぐ
+    .title_right
+      .title_right__btn--left
+        = link_to '/users/current_user.id', class: 'back' do
+          マイページへ
+      .title_right__btn--right
+        = link_to '/', class: 'toppage' do
+          トップに戻る
+
+  .show_field
+    .show_mount
+      .show_title
+        = @article.title
+      .show_image     
+      .show_text      
+        = @article.text    
+    .show_edit
+      = link_to "/articles/#{@article.id}/edit", class: 'edit' do
+        編集する
+    .show_destroy
+      = link_to "/articles/#{@article.id}", class: 'destroy', method: :delete do
+        削除する    
+         
+- else
+  .header
+    .title_left
+      %p.title_left__text #{@article.user.name}さんのめもろぐ
+    .title_right
+      .title_right__btn--right
+        = link_to '/', class: 'toppage' do
+          トップに戻る
+
+  .show_field
+    .show_mount
+      .show_title
+        = @article.title
+      .show_image     
+      .show_text      
+        = @article.text  

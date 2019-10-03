@@ -1,0 +1,27 @@
+.header
+  .title_left
+    %p.title_left__text #{@name}さんのめもろぐ
+  .title_right
+    .title_right__btn--left
+      = link_to '/users/current_user.id', class: 'back' do
+        マイページに戻る
+    .title_right__btn--right
+      = link_to '/', class: 'toppage' do
+        トップに戻る
+        
+.edit_contents
+  .edit_wrap
+    = form_for @article do |f|
+      %p.camera_image
+        画像はココ
+      .image_box
+        = f.label :image, class: 'image_box__label' do
+          = fa_icon 'camera-retro 3x', class: 'camera_icon'
+          = f.file_field :image, class: 'hidden'
+      .title_box
+        = f.text_field :title, class: 'post_title', cols: 30, value: @article.title
+      .text_box
+        = f.text_area :text , class: 'post_text', value: @article.text
+      .send_btn
+        = f.submit "更新", class: 'post_btn'
+.footer

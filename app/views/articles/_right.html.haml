@@ -1,0 +1,23 @@
+.right_contents
+  - @articles.each do |article|
+    .article
+      .article__left
+        .article__left--image
+          - if article.image.present?
+            = image_tag article.image.url, class: 'thumbnail' 
+          - else
+            = image_tag 'memolog.jpg', class: 'thumbnail'
+      .article__right
+        .article__right--title
+          = article.title.truncate(20)
+        .article__right--text
+          = article.text.truncate(35)
+        .article__right--user
+          投稿者：
+          = "#{article.user.name}"
+        .article__right--time
+          投稿時間：
+          = simple_time(article[:created_at])
+          -# = "#{article.created_at.to_s}"
+        .article__right--btn
+          %a{:href => "/articles/#{article.id}", class: "article_details"} 内容を覗く
