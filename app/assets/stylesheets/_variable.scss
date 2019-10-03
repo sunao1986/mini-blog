@@ -1,0 +1,24 @@
+.clearfix {
+  &:after {
+    content: "";
+    clear: both;
+    display: block;
+  }
+}
+.nonstyle {
+  border: none;
+  border-radius: 0;
+  outline: none;
+  appearance: none;
+}
+
+$white: #FFFFFF;
+$dark_mono: #323232;
+$middle_mono: #7F7F7F;
+$light_mono: #cccccc;
+$dark_blue: #003265;
+$middle_blue: #007FFF;
+$light_blue: #99CCFF;
+$dark_orange: #654C00;
+$middle_orange: #FFBF00;
+$light_orange: #FFE599;

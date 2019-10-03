@@ -1,0 +1,152 @@
+.header{
+  height: 100px;
+  width: 100vw;
+  // background-color: beige;
+  border-bottom: solid 1px gainsboro;
+  overflow-y: scroll;
+  .title_left{
+    float: left;
+    width: 50%;
+    height: 100%;
+    position: relative;
+    // background-color: aqua;
+    &__text{
+      position: absolute;
+      font-family: 'Hiragino Mincho Pro';
+      font-size: 20px;
+      color:$middle_mono;
+      top: 50px;
+      left: 100px;
+    }
+  }
+  .title_right{
+    float: left;   
+    width: 50%;
+    position: relative;
+    // background-color: aqua;
+    &__btn--left{
+      position: absolute;
+      width: 100px;
+      height: 30px;
+      font-size: 12px;
+      font-family: 'Hiragino Mincho Pro';
+      border: solid 1px $middle_mono;
+      text-align: center;
+      line-height: 30px; 
+      box-shadow:1px 1px $middle_mono;
+      top: 50px;
+      left: 350px;
+      .back{
+        text-decoration: none;  
+        color:$middle_mono;
+      }
+    } 
+    &__btn--right{
+      position: absolute;
+      width: 100px;
+      height: 30px;
+      font-size: 12px;
+      font-family: 'Hiragino Mincho Pro';
+      border: solid 1px $middle_mono;
+      text-align: center;
+      line-height: 30px;
+      box-shadow:1px 1px $middle_mono;
+      top: 50px;
+      left: 470px;
+      .toppage{
+        text-decoration: none;  
+        color:$middle_mono;
+      }
+    }
+  } 
+}
+.edit_contents{   
+  margin:0 auto;
+  width: 50%;
+  height: 100vh;
+  padding-top:50px;
+  position: relative;
+  .edit_wrap {
+    position: absolute;
+    top: 50px;
+    left: 100px;
+    .camera_image{
+      text-align: center;
+      font-size: 10px;
+      font-family: 'Hiragino Mincho Pro'; 
+      padding-left:10px;
+      color:$middle_mono;
+    }
+    .image_box{
+      &__label{
+        .camera_icon{
+          color:$middle_mono;
+          margin-left: 190px;
+          margin-bottom:10px;
+          cursor: pointer;
+        }
+        .hidden{
+          display: none;
+        }
+      }
+    } 
+    .title_box{
+      .post_title{
+        font-size: 20px;
+        font-family: 'Hiragino Mincho Pro';    
+        width:420px;
+        color:$dark_mono;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        line-height: 30px;
+        text-align: center;
+        padding: 5px 0;
+      }
+      .post_title:focus{
+        outline: none;
+      }
+    }
+    .text_box {
+      .post_text{
+        resize: none;
+        color:$dark_mono;
+        font-size: 18px;
+        font-family: 'Hiragino Mincho Pro';    
+        width:420px;
+        height:400px;
+        border-left: none;
+        border-right: none;
+        line-height: 25px;
+      }
+      .post_text::placeholder{
+        text-align: center;
+        line-height:400px;
+      }
+      .post_text:focus{
+        outline: none;
+      }
+    }
+    .send_btn {
+      padding-top:20px;
+      padding-left:160px;
+      .post_btn{
+        border-style: none;
+        cursor: pointer;
+        width: 80px;
+        height: 30px;
+        font-size: 12px;
+        font-family: 'Hiragino Mincho Pro';
+        border: solid 1px $middle_mono;
+        text-align: center;
+        line-height: 30px; 
+        box-shadow:1px 1px $middle_mono;
+      }
+    }
+  }
+}
+.footer{
+  height:50px;
+  width:100vw;
+}

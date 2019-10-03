@@ -1,0 +1,46 @@
+.header
+  .title_left
+    %p.title_left__text #{@name}さんのめもろぐ
+  .title_right
+    .title_right__btn--left
+      -# = link_to edit_user_password_path(current_user), class: 'acount' do
+      = link_to '/', class: 'acount' do
+        アカウント編集
+    .title_right__btn--right
+      = link_to '/', class: 'toppage' do
+        トップに戻る
+
+.my_contents
+  .my_description
+    .my_text
+      %p ここはマイページです
+      %p 編集と削除とユーザー編集ができます
+    .my_image
+      = image_tag 'momolog2.jpg', class: 'my_pagea_image'
+
+  .right_contents
+    - @articles.each do |article|
+      .article
+        .article__left
+          .article__left--image
+            - if article.image.present?
+              = image_tag article.image.url, class: 'thumbnail' 
+            - else
+              = image_tag 'memolog.jpg', class: 'thumbnail'
+        .article__right
+          .article__right--title
+            = article.title.truncate(20)
+          .article__right--text
+            = article.text.truncate(30)
+          .article__right--user
+            投稿者：
+            = "#{article.user.name}"
+          .article__right--time
+            投稿時間：
+            = simple_time(article[:created_at])
+            -# = "#{article.created_at.to_s}"
+          .article__right--btn
+            %a{:href => "/articles/#{article.id}", class: "article_details"} 内容を編集する
+            -# = link_to '/articles/article.id', class: 'article_details' do
+              
+.footer

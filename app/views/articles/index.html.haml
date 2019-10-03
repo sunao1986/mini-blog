@@ -1,0 +1,53 @@
+.wrapper
+
+  = render partial: 'header', locals: { article: @article }
+
+  .contents
+    - if user_signed_in?
+      .left_contents
+        .form_wrap
+          = form_for @article do |f|
+            %p.camera_image
+              サムネイルはここ
+            .image_box
+              = f.label :image, class: 'image_box__label' do
+                = fa_icon 'camera-retro 3x', class: 'camera_icon'
+                = f.file_field :image, class: 'hidden'
+            .title_box
+              = f.text_field :title, class: 'post_title', placeholder: 'タイトル記入欄(20文字以内)'
+            .text_box
+              = f.text_area :text , class: 'post_text', placeholder: 'ここにテキストを書いてください'
+            .send_btn
+              = f.submit "保存", class: 'post_btn'
+    -else
+      .description
+        .descripstion_field
+          .descripstion_field__title
+            「みんなのめもろぐ」はメモの共有アプリです
+          .descripstion_field__concept
+            書いて覗いて覗かれて
+          .descripstion_field__concept
+            いつものメモ書きがほんの少しのリスクで楽しくなる
+          .descripstion_field__use
+            %br
+            &nbsp;&nbsp;&nbsp;使い方
+            %ul 
+              %li ユーザー登録をしなくてもメモを覗けます
+              %li ユーザー登録をすると「この場所」がメモパッドになります
+              %li 書いたメモは強制的にタイムラインに流れます
+              %li (内容については自己責任でお願いします)
+              %li 保存されたメモはマイページで「編集・削除」ができます
+              %li タイムラインに流れる無作為な言葉を眺めながめる
+              %li 思わぬ言葉にアイデアが湧く
+              %li メモを取る。流出する。
+          .descripstion_field__use
+            &nbsp;&nbsp;&nbsp;仕様
+            %ul 
+              %li ユーザー登録,ログイン・ログアウト機能
+              %li テキスト入力、保存、タイムライン共有機能
+              %li サムネイル画像アップロード、自動リサイズ機能
+              %li 画像がない場合のデファルト画像挿入機能
+
+    = render partial: 'right', locals: { article: @article }
+
+  .footer
