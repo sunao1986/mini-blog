@@ -1,6 +1,6 @@
 .header
   .title_left
-    %p.title_left__text #{@name}さんのめもろぐ
+    %p.title_left__text #{current_user.name}さんのめもろぐ
   .title_right
     .title_right__btn--left
       = link_to '/users/current_user.id', class: 'back' do

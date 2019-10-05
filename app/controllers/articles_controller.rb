@@ -19,12 +19,10 @@ class ArticlesController < ApplicationController
 
   def show
     # binding.pry
-    @name = current_user.name
     @article = Article.find(params[:id])
   end
 
   def edit
-    @name = current_user.name
     @article = Article.find(params[:id])
   end
 
